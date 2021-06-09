@@ -1,11 +1,18 @@
-p, h1, h2, h3, h4, h5, h6, button {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button {
     font-family: "Roboto", serif;
 }
 
 body {
     background-color: #f5f5f9;
     background-size: cover;
-    width: auto; 
+    width: auto;
     overflow-x: hidden;
     font-family: "Roboto", serif;
     margin: 0px;
@@ -21,33 +28,35 @@ body {
 }
 
 .nav-bar-centered {
-    padding: 0 30px; 
-    display: flex; 
+    padding: 0 30px;
+    display: flex;
     justify-content: space-between;
 }
 
 .nav-menu {
-    width: 500px; 
-    display: flex; 
+    width: 500px;
+    display: flex;
     justify-content: space-between;
 }
 
 .nav-menu a {
-    color: white; 
+    color: white;
     text-decoration: none;
     font-size: 28px;
-    display: flex; 
+    display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
 .nav-menu a:hover {
-    color: #caebff; 
+    color: #caebff;
 }
 
-body.index header div div a.index, body.portfolio header div div a.portfolio,
-body.resume header div div a.resume, body.contact header div div a.contact {
-    color: black; 
+body.index header div div a.index,
+body.portfolio header div div a.portfolio,
+body.resume header div div a.resume,
+body.contact header div div a.contact {
+    color: black;
 }
 
 .nav-content .logo-touch-target {
@@ -81,21 +90,19 @@ body.resume header div div a.resume, body.contact header div div a.contact {
 
 @media screen and (max-width: 800px) {
     .nav-bar-centered {
-        padding: 0; 
-        margin: 0 auto; 
-        display: block; 
+        padding: 0;
+        margin: 0 auto;
+        display: block;
     }
-
     .nav-menu {
-        width: 100%; 
-        display: block; 
-        margin: 0 auto; 
-        text-align: center; 
-        padding-top: 10px; 
+        width: 100%;
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+        padding-top: 10px;
     }
-
     .nav-menu a {
-        padding: 5px 0; 
+        padding: 5px 0;
     }
 }
 
@@ -107,19 +114,19 @@ body.resume header div div a.resume, body.contact header div div a.contact {
 }
 
 .profile h1 {
-        font-size: 50px;
-        font-weight: 700;
-        color: white;
+    font-size: 50px;
+    font-weight: 700;
+    color: white;
 }
 
 .profile img {
-        border-radius: 50%;
-        max-width: 100%;
-        max-height: 100%;
-        margin-left: auto;
-        margin-right: auto;
-        display: block;        
-        padding: 20px;
+    border-radius: 50%;
+    max-width: 100%;
+    max-height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    padding: 20px;
 }
 
 .profile .profile-picture {
@@ -134,8 +141,8 @@ body.resume header div div a.resume, body.contact header div div a.contact {
 }
 
 .banner .logo {
-    max-width:180px;
-    max-height:60px;
+    max-width: 180px;
+    max-height: 60px;
     width: auto;
     height: auto;
 }
@@ -144,4 +151,35 @@ body.resume header div div a.resume, body.contact header div div a.contact {
     color: white;
     font-size: 50px;
     font-weight: 700;
+}
+
+
+/* for About Page */
+
+.about {
+    background-color: #56bfc9;
+}
+
+.about img {
+    width: 100%;
+    height: 100%;
+    background-color: #d9d9d9;
+    border-radius: 50px;
+}
+
+.about table {
+    padding-left: 5%;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+}
+
+.about h1 {
+    font-size: 3vw;
+    color: #f5f5f9;
+}
+
+.about-me {
+    font-size: 3vw;
+    background-color: #f5f5f9;
+    padding-left: 15%;
 }
