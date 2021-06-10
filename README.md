@@ -1,7 +1,7 @@
 # Flask-Blog
 
 Minimal Flask template to get started on your blog application for MLH Fellowship Production Engineering track.
- 
+
 
 ## Installation
 
@@ -10,7 +10,7 @@ Make sure you have python3 and pip installed
 
 Create and activate virtual environment using virtualenv
 ```bash
-$ python -m venv python3-virtualenv
+$ python3 -m venv python3-virtualenv
 $ source python3-virtualenv/bin/activate
 ```
 
