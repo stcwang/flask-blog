@@ -1,11 +1,12 @@
-{% extends "layout.html" %}
-{% block title %}{{ title }}{% endblock %}
-{% block page %}<body class="index">{% endblock %}
-{% block content %}
+{% extends "layout.html" %} {% block title %}{{ title }}{% endblock %} {% block page %}
+
+<body class="index">{% endblock %} {% block content %}
     <div class="profile">
-        <div id="profile-picture" class="profile-picture">
-            <img src="./static/img/logo.jpg">
-        </div>
-        <h1>{{ title }}</h1>
+        <a href="{{ url_for('about') }}" style="text-decoration: none;">
+            <div id="profile-picture" class="profile-picture">
+                <img src="./static/img/logo.jpg" class="hoverbutton" title="About Me">
+            </div>
+            <h1>{{ title }}</h1>
+        </a>
     </div>
-{% endblock %}
+    {% endblock %}
