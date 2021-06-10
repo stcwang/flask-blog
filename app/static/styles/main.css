@@ -186,6 +186,77 @@ body.contact header div div a.contact {
     padding: 10px 150px;
 }
 
+/* project page */
+
+.projects-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.project {
+    width: 100%;
+    height: 400px;
+    display: flex;
+    flex-flow: row;
+}
+
+.project:nth-of-type(odd) {
+    flex-direction: row;
+}
+
+.project:nth-of-type(even) {
+    flex-direction: row-reverse;
+}
+
+.project-img {
+    width: 40%;
+    height: 400px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.project-desc {
+    box-sizing: border-box;
+    width: 60%;
+    padding: 20px;
+}
+
+.project-desc p {
+    text-align: justify;
+}
+
+.project-desc a {
+    box-sizing: border-box;
+    display: block;
+    border-radius: 5px;
+    text-align: center;
+    padding-top: 5px;
+    font-size: 18px;
+    width: 70px;
+    height: 30px;
+    text-decoration: none;
+    color: white;
+    background-color: #1C539F;
+}
+
+@media screen and (max-width: 800px) {
+    .project {
+        display: block; 
+        height: 100%; 
+    }
+    
+    .project-img {
+        width: 100%;
+        margin: 0 auto; 
+    }
+
+    .project-desc {
+        width: 100%; 
+    }
+}
+
 /* for contact page */
 
 .contact-page {
