@@ -134,6 +134,13 @@ body.contact header div div a.contact {
     height: 200px;
 }
 
+.hoverbutton {
+    -webkit-transition: opacity 0.1s ease-in-out;
+    -moz-transition: opacity 0.1s ease-in-out;
+    -o-transition: opacity 0.1s ease-in-out;
+    transition: opacity 0.1s ease-in-out;
+}
+
 .banner {
     padding: 20px 0px 50px 0px;
     height: 150px;
@@ -168,18 +175,24 @@ body.contact header div div a.contact {
 }
 
 .about table {
-    padding-left: 5%;
+    /* padding-left: 5%;
     padding-top: 2rem;
-    padding-bottom: 1rem;
+    padding-bottom: 1rem; */
+    padding: 5px 100px;
 }
 
 .about h1 {
-    font-size: 3vw;
+    font-size: 55px;
     color: #f5f5f9;
 }
 
 .about-me {
-    font-size: 3vw;
+    font-size: 35px;
     background-color: #f5f5f9;
     padding-left: 15%;
+}
+
+.about-para {
+    text-align: center;
+    padding: 10px 150px;
 }
