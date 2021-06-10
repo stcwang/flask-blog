@@ -145,3 +145,18 @@ body.resume header div div a.resume, body.contact header div div a.contact {
     font-size: 50px;
     font-weight: 700;
 }
+
+.contact-page {
+    padding: 0 200px;
+}
+
+.contact-profile {
+    display: flex; 
+    justify-content: space-between;
+}
+
+.contact-profile img {
+    border-radius: 50%;
+    max-width: 200px;
+    max-height: 200px;
+}
