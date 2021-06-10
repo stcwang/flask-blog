@@ -153,7 +153,6 @@ body.contact header div div a.contact {
     font-weight: 700;
 }
 
-
 /* for About Page */
 
 .about-page {
@@ -190,16 +189,32 @@ body.contact header div div a.contact {
 /* for contact page */
 
 .contact-page {
-    padding: 0 200px;
-}
-
-.contact-profile {
+    padding: 0 10%;
     display: flex; 
-    justify-content: space-between;
 }
 
-.contact-profile img {
+.contact-image {
+    margin-right: 50px; 
+    margin-top: 80px; 
+}
+
+.contact-image img {
     border-radius: 50%;
     max-width: 200px;
     max-height: 200px;
+}
+
+@media screen and (max-width: 650px) {
+    .contact-page {
+        display: block; 
+    }
+
+    .contact-image {
+        margin: 20px 0 0 0; 
+    }
+
+    .contact-image img {
+        margin: 0 auto;
+        display: block; 
+    }
 }
