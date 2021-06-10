@@ -289,3 +289,20 @@ body.contact header div div a.contact {
         display: block; 
     }
 }
+
+/* resume page */
+
+.resume iframe {
+    display: block; 
+    padding-top: 10px;
+    margin: 0 auto; 
+    width: 80vw;
+    height: 84vh; 
+}
+
+@media screen and (max-width: 800px) {
+    .resume iframe {
+        width: 100vw;
+        padding-top: 0;
+    }
+}
