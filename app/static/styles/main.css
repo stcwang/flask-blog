@@ -197,28 +197,30 @@ body.contact header div div a.contact {
     padding: 10px 150px;
 }
 
-.projects-section{
+/* project page */
+
+.projects-section {
     width: 100%;
     display: flex;
     flex-direction: column;
 }
 
-.project{
+.project {
     width: 100%;
     height: 400px;
     display: flex;
     flex-flow: row;
 }
 
-.project:nth-of-type(odd){
+.project:nth-of-type(odd) {
     flex-direction: row;
 }
 
-.project:nth-of-type(even){
+.project:nth-of-type(even) {
     flex-direction: row-reverse;
 }
 
-.project-img{
+.project-img {
     width: 40%;
     height: 400px;
     background-position: center;
@@ -226,7 +228,7 @@ body.contact header div div a.contact {
     background-size: cover;
 }
 
-.project-desc{
+.project-desc {
     box-sizing: border-box;
     width: 60%;
     padding: 20px;
@@ -236,7 +238,7 @@ body.contact header div div a.contact {
     text-align: justify;
 }
 
-.project-desc a{
+.project-desc a {
     box-sizing: border-box;
     display: block;
     border-radius: 5px;
@@ -248,4 +250,20 @@ body.contact header div div a.contact {
     text-decoration: none;
     color: white;
     background-color: #1C539F;
+}
+
+@media screen and (max-width: 800px) {
+    .project {
+        display: block; 
+        height: 100%; 
+    }
+    
+    .project-img {
+        width: 100%;
+        margin: 0 auto; 
+    }
+
+    .project-desc {
+        width: 100%; 
+    }
 }
