@@ -24,14 +24,14 @@
     <header class="nav-bar">
         <div class="nav-bar-centered">
             <div class="nav-content">
-                <a href="https://fellowship.mlh.io/">
+                <a href="{{ url_for('index') }}">
                     <div class="nav-logo">
                         <img src="./static/img/logo.svg" />
                     </div>
                 </a>
             </div>
             <div class="nav-menu">
-                <a href="{{ url_for('index') }}" class="index">Home</a>
+                <a href="{{ url_for('about') }}" class="about">About</a>
                 <a href="{{ url_for('portfolio') }}" class="portfolio">Portfolio</a>
                 <a href="{{ url_for('resume') }}" class="resume">Resume</a>
                 <a href="{{ url_for('contact') }}" class="contact">Contact</a>
