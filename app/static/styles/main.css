@@ -134,10 +134,6 @@ body.contact header div div a.contact {
     height: 200px;
 }
 
-.profile-response{
-    text-align: center;
-}
-
 .banner {
     padding: 20px 0px 50px 0px;
     height: 150px;
@@ -295,7 +291,7 @@ body.contact header div div a.contact {
     margin-top: 80px; 
 }
 
-.contact-form input[type=text], textarea{
+.contact-form input[type=text], input[type=email], textarea {
     border: 1px solid #ccc;
     box-sizing: border-box;
     padding: 12px 20px;
@@ -303,7 +299,7 @@ body.contact header div div a.contact {
     margin-bottom: 10px;
 }
 
-.contact-form textarea{
+.contact-form textarea {
     border-radius: 10px 10px 0 10px;
 }
 
@@ -328,6 +324,12 @@ body.contact header div div a.contact {
     max-height: 200px;
 }
 
+.contact-response {
+    background-color: #00f0ef;
+    border-radius: 5px;
+    padding: 5px;
+}
+
 @media screen and (max-width: 650px) {
     .contact-page {
         display: block; 
@@ -340,6 +342,10 @@ body.contact header div div a.contact {
     .contact-image img {
         margin: 0 auto;
         display: block; 
+    }
+
+    .contact-form textarea {
+        max-width: 100%;
     }
 }
 
