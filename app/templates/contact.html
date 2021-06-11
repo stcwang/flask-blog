@@ -7,12 +7,15 @@
         </div>
         <div class="contact-form">
             <h1>{{ title }}</h1>
+            {% if response %}
+            <p class="contact-response">{{ response }}</p>
+            {% endif %}
             <p>Want to get in touch? Send me a message: </p>
-            <form id="contact-form" action="{{ url }}/send-email" method="POST"> 
+            <form id="contact-form" action="{{ url_for('send_email') }}" method="POST"> 
                 <label for="name">Name:</label><br>
                 <input type="text" id="name" name="name" required><br>
                 <label for="email">Email:</label><br>
-                <input type="text" id="email" name="email" required><br>
+                <input type="email" id="email" name="email" required><br>
                 <label for="subject">Subject:</label><br>
                 <input type="text" id="subject" name="subject" required><br>
                 <label for="message">Message:</label><br>
