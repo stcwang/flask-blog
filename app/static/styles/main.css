@@ -153,6 +153,7 @@ body.contact header div div a.contact {
     font-weight: 700;
 }
 
+
 /* for About Page */
 
 .about-page {
@@ -162,17 +163,17 @@ body.contact header div div a.contact {
 }
 
 .about-img {
-    display: flex; 
+    display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
 .about-img img {
-    width: 100px;
-    height: 100px;
     background-color: #d9d9d9;
-    border-radius: 50px;
-    margin: 0 10px;
+    margin: 10px 10px;
+    border-radius: 50%;
+    max-width: 200px;
+    max-height: 200px;
 }
 
 .about-page h1 {
@@ -197,16 +198,15 @@ body.contact header div div a.contact {
         display: block;
         padding: 20px;
     }
-
     .about-img img {
         margin: 0 auto;
     }
-
     .about-page h1 {
         text-align: center;
         margin: 0;
     }
 }
+
 
 /* project page */
 
@@ -265,33 +265,34 @@ body.contact header div div a.contact {
 
 @media screen and (max-width: 800px) {
     .project {
-        display: block; 
-        height: 100%; 
+        display: block;
+        height: 100%;
     }
-    
     .project-img {
         width: 100%;
-        margin: 0 auto; 
+        margin: 0 auto;
     }
-
     .project-desc {
-        width: 100%; 
+        width: 100%;
     }
 }
+
 
 /* for contact page */
 
 .contact-page {
     padding: 0 10%;
-    display: flex; 
+    display: flex;
 }
 
 .contact-image {
-    margin-right: 50px; 
-    margin-top: 80px; 
+    margin-right: 50px;
+    margin-top: 80px;
 }
 
-.contact-form input[type=text], input[type=email], textarea {
+.contact-form input[type=text],
+input[type=email],
+textarea {
     border: 1px solid #ccc;
     box-sizing: border-box;
     padding: 12px 20px;
@@ -312,6 +313,7 @@ body.contact header div div a.contact {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    font-size: medium;
 }
 
 .contact-form input[type=submit]:hover {
@@ -332,31 +334,29 @@ body.contact header div div a.contact {
 
 @media screen and (max-width: 650px) {
     .contact-page {
-        display: block; 
+        display: block;
     }
-
     .contact-image {
-        margin: 20px 0 0 0; 
+        margin: 20px 0 0 0;
     }
-
     .contact-image img {
         margin: 0 auto;
-        display: block; 
+        display: block;
     }
-
     .contact-form textarea {
         max-width: 100%;
     }
 }
 
+
 /* resume page */
 
 .resume iframe {
-    display: block; 
+    display: block;
     padding-top: 10px;
-    margin: 0 auto; 
+    margin: 0 auto;
     width: 80vw;
-    height: 84vh; 
+    height: 84vh;
 }
 
 @media screen and (max-width: 800px) {
