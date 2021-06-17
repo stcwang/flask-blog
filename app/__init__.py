@@ -61,3 +61,6 @@ def send_email():
     
     return render_template('contact.html', title="Contact", response=response, url=os.getenv("URL"))
 
+@app.route('/health')
+def health():
+    return 200; 
