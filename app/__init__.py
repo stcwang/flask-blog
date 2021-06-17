@@ -63,4 +63,4 @@ def send_email():
 
 @app.route('/health')
 def health():
-    return 200; 
+    return "<p>works</p>"
