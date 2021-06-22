@@ -3,10 +3,12 @@ from flask import Flask, render_template, send_from_directory, request
 from dotenv import load_dotenv
 import smtplib
 from email.mime.text import MIMEText
+from . import db
 
 load_dotenv()
 app = Flask(__name__)
-
+app.config['DATABASE'] = os.path.join(os.getcwd(), 'flask.sqlite')
+db.init_app(app)
 
 @app.route('/')
 def index():
@@ -64,3 +66,4 @@ def send_email():
 @app.route('/health')
 def health():
     return "<p>works</p>"
+
