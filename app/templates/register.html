@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block page %}<body class="register">{% endblock %}
+    {% block content %}
+    <h1>{{ title }}</h1>
+    <div class="form">
+        {% if response %}
+        <p class="contact-response">{{ response }}</p>
+        {% endif %}
+        <form id="login-form" action="{{ url_for('register') }}" method="POST">
+            <label>Username</label><br>
+            <input type="text" id="username" name="username" required><br>
+            <label>Password</label><br>
+            <input type="password" id="password" name="password" required><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    {% endblock %}

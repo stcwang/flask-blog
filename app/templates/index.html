@@ -1,4 +1,4 @@
-{% extends "layout.html" %} {% block title %}{{ title }}{% endblock %} {% block page %}
+{% extends "layout.html" %}{% block page %}
 
 <body class="index">{% endblock %} {% block content %}
     <div class="profile">
@@ -7,4 +7,8 @@
         </div>
         <h1>{{ title }}</h1>
     </div>
+
+    {% if response %}
+    <p class="contact-response">{{ response }}</p>
+    {% endif %}
     {% endblock %}
