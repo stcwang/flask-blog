@@ -1,9 +1,24 @@
-p, h1, h2, h3, h4, h5, h6, button {
-  font-family: "Roboto", serif;
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&family=Yellowtail&display=swap');
+
+:root {
+  --color-background: #f5f5f5; 
+  --color-foreground: #32667c;
+  --color-main: black;
+  --color-back-text: white;
+  --color-highlight: #ccf1ff;
+  --color-banner: #80ecff;
+  --color-button: #3a9249;
+  --color-button-dark: #2b6e36;
+  --color-button2: #a5afd9;
+  --color-button2-dark: #8190ca;
+}
+
+p, a, h1, h2, h3, h4, h5, h6, button, label {
+  font-family: 'Quicksand', sans-serif;
 }
 
 body {
-  background-color: #f5f5f9;
+  background-color: var(--color-background);
   background-size: cover;
   width: auto;
   overflow-x: hidden;
@@ -14,7 +29,7 @@ body {
 input[type="text"], input[type="email"], input[type="password"], textarea {
   border: 1px solid #ccc;
   box-sizing: border-box;
-  padding: 12px 20px;
+  padding: 12px;
   border-radius: 10px;
   margin-bottom: 10px;
 }
@@ -25,8 +40,8 @@ textarea {
 
 input[type="submit"] {
   width: 100px;
-  background-color: #4caf50;
-  color: white;
+  background-color: var(--color-button);
+  color: var(--color-back-text);
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
@@ -36,15 +51,16 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-  background-color: #45a049;
+  background-color: var(--color-button-dark);
 }
+
+/* header */
 
 .nav-bar {
   width: 100%;
   display: inline-block;
-  background-color: #1c539f;
-  font-family: "Roboto", serif;
-  font-weight: 700 !important;
+  background-color: var(--color-foreground);
+  font-weight: 700;
   padding: 10px 0;
 }
 
@@ -66,7 +82,7 @@ input[type="submit"]:hover {
 }
 
 .nav-menu a {
-  color: white;
+  color: var(--color-back-text);
   text-decoration: none;
   font-size: 28px;
   display: flex;
@@ -75,12 +91,14 @@ input[type="submit"]:hover {
 }
 
 .nav-menu a:hover {
-  color: #caebff;
+  color: var(--color-highlight);
+  text-decoration: underline;
 }
 
 body.about header div a.about, body.portfolio header div a.portfolio, 
 body.resume header div a.resume, body.contact header div a.contact {
-  color: black;
+  color: var(--color-main);
+  text-decoration: none;
 }
 
 .nav-content .logo-touch-target {
@@ -125,16 +143,17 @@ body.resume header div a.resume, body.contact header div a.contact {
 }
 
 .sign-in div a {
-  color: black; 
+  color: var(--color-main); 
   text-decoration: none;
   text-align: center;
-  width: 80px;
-  padding: 3px 0;
-  background-color: #00f0ef;
+  width: 85px;
+  padding: 5px 0;
+  background-color: var(--color-button2);
+  border-radius: 5px;
 }
 
 .sign-in div a:hover {
-  background-color: #00d9d8;
+  background-color: var(--color-button2-dark);
 }
 
 @media screen and (max-width: 1050px) {
@@ -144,6 +163,7 @@ body.resume header div a.resume, body.contact header div a.contact {
   }
 
   .nav-menu {
+    top: 0;
     position: relative;
   }
 
@@ -154,8 +174,7 @@ body.resume header div a.resume, body.contact header div a.contact {
       display: block;
     }
     .sign-in {
-      margin: 0 auto;
-      margin-top: 10px;
+      margin: 10px auto;
     }
 
     .nav-menu {
@@ -163,7 +182,6 @@ body.resume header div a.resume, body.contact header div a.contact {
       display: block;
       margin: 0 auto;
       text-align: center;
-      padding-bottom: 10px;
     }
 
     .nav-menu a {
@@ -175,7 +193,7 @@ body.resume header div a.resume, body.contact header div a.contact {
 
 
 .profile {
-  background-color: #1d539f !important;
+  background-color: var(--color-foreground);
   text-align: center;
   height: 320px;
   margin-bottom: 50px;
@@ -184,7 +202,7 @@ body.resume header div a.resume, body.contact header div a.contact {
 .profile h1 {
   font-size: 50px;
   font-weight: 700;
-  color: white;
+  color: var(--color-back-text);
 }
 
 .profile img {
@@ -205,7 +223,7 @@ body.resume header div a.resume, body.contact header div a.contact {
 .banner {
   padding: 20px 0px 50px 0px;
   height: 150px;
-  background-color: #1d539f;
+  background-color: var(--color-foreground);
 }
 
 .banner .logo {
@@ -216,7 +234,7 @@ body.resume header div a.resume, body.contact header div a.contact {
 }
 
 .banner .title {
-  color: white;
+  color: var(--color-back-text);
   font-size: 50px;
   font-weight: 700;
 }
@@ -224,37 +242,23 @@ body.resume header div a.resume, body.contact header div a.contact {
 /* for About Page */
 
 .about-page {
-  background-color: #56bfc9;
+  background-color: var(--color-banner);
   display: flex;
   padding: 20px 100px;
 }
 
-.about-img {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.about-img img {
-  background-color: #d9d9d9;
-  margin: 10px 10px;
-  border-radius: 50%;
-  max-width: 200px;
-  max-height: 200px;
-}
-
 .about-page h1 {
+  font-family: 'Yellowtail', cursive;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left: 30px;
+  margin: 10px auto;
   font-size: 50px;
-  color: #f5f5f9;
+  color: var(--color-main);
 }
 
 .about-me {
   font-size: 35px;
-  background-color: #f5f5f9;
   text-align: center;
 }
 
@@ -319,17 +323,19 @@ body.resume header div a.resume, body.contact header div a.contact {
 }
 
 .project-desc a {
-  box-sizing: border-box;
   display: block;
   border-radius: 5px;
   text-align: center;
-  padding-top: 5px;
+  padding: 5px 0;
   font-size: 18px;
   width: 70px;
-  height: 30px;
   text-decoration: none;
-  color: white;
-  background-color: #1c539f;
+  color: var(--color-back-text);
+  background-color: var(--color-button);
+}
+
+.project-desc a:hover {
+  background-color: var(--color-button-dark);
 }
 
 @media screen and (max-width: 800px) {
@@ -365,7 +371,7 @@ body.resume header div a.resume, body.contact header div a.contact {
 }
 
 .contact-response {
-  background-color: #00f0ef;
+  background-color: var(--color-banner);
   border-radius: 5px;
   padding: 5px;
 }
@@ -402,6 +408,8 @@ body.resume header div a.resume, body.contact header div a.contact {
     padding-top: 0;
   }
 }
+
+/* login & register pages */
 
 body.login, body.register {
   text-align: center;
