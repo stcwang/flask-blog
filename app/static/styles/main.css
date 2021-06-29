@@ -150,10 +150,16 @@ body.resume header div a.resume, body.contact header div a.contact {
   padding: 5px 0;
   background-color: var(--color-button2);
   border-radius: 5px;
+  box-shadow: 1px 3px rgba(0,0,0,0.3);
 }
 
 .sign-in div a:hover {
   background-color: var(--color-button2-dark);
+}
+
+.sign-in div a:active {
+  box-shadow: 0 0;
+  transform: translate(1px, 3px);
 }
 
 @media screen and (max-width: 1050px) {
