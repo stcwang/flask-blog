@@ -11,7 +11,7 @@
             <p class="contact-response">{{ response }}</p>
             {% endif %}
             <p>Want to get in touch? Send me a message: </p>
-            <form id="contact-form" action="{{ url_for('send_email') }}" method="POST"> 
+            <form id="contact-form" action="{{ url_for('contact') }}" method="POST"> 
                 <label for="name">Name:</label><br>
                 <input type="text" id="name" name="name" required><br>
                 <label for="email">Email:</label><br>
