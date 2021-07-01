@@ -133,7 +133,7 @@ body.resume header div a.resume, body.contact header div a.contact {
 .sign-in {
   display: flex;
   justify-content: space-between;
-  width: 180px;
+  min-width: 180px;
 }
 
 .sign-in div {
@@ -162,6 +162,12 @@ body.resume header div a.resume, body.contact header div a.contact {
   transform: translate(1px, 3px);
 }
 
+.sign-in div p {
+  color: var(--color-background);
+  text-align: right;
+  margin-right: 15px;
+}
+
 @media screen and (max-width: 1050px) {
   .nav-bar-centered {
     width: 500px;
@@ -179,8 +185,24 @@ body.resume header div a.resume, body.contact header div a.contact {
       padding: 0;
       display: block;
     }
+    
     .sign-in {
-      margin: 10px auto;
+      display: block;
+      margin: 5px auto;
+      width: 180px;
+    }
+
+    .sign-in div {
+      flex-direction: row;
+    }
+
+    .sign-in div p {
+      text-align: center;
+      margin: 4px 0 8px 0;
+    }
+
+    .sign-in div a {
+      margin: 4px;
     }
 
     .nav-menu {
@@ -429,5 +451,5 @@ body.login, body.register {
 body.index .contact-response {
   text-align: center;
   margin: 0 auto;
-  max-width: 800px;
+  max-width: 600px;
 }
