@@ -33,12 +33,13 @@
                 </div>
             </div>
             <div class="sign-in">
-                <div>
-                    <a href="{{ url_for('register') }}" class="register">Register</a>
-                </div>
-                <div>
-                    <a href="{{ url_for('login') }}" class="login">Log In</a>
-                </div>
+                {% if not user %}
+                <div><a href="{{ url_for('register') }}" class="register">Register</a></div>
+                <div><a href="{{ url_for('login') }}" class="login">Log In</a></div>
+                {% else %}
+                <div><p>Hi, {{ user }}!</p></div>
+                <div><a href="{{ url_for('logout') }}" class="logout">Log Out</a></div>
+                {% endif %}
             </div>
         </div>
         <div class="nav-menu">

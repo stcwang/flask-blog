@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, send_from_directory, request, redirect, url_for
+from flask import Flask, render_template, send_from_directory, request, redirect, url_for, session
 from dotenv import load_dotenv
 import smtplib
 from email.mime.text import MIMEText
@@ -11,6 +11,8 @@ from flask_migrate import Migrate
 load_dotenv()
 app = Flask(__name__)
 
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
+app.config['SESSION_COOKIE_SAMESITE'] = "Lax"
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://{user}:{passwd}@{host}:{port}/{table}'.format(
     user=os.getenv('POSTGRES_USER'),
     passwd=os.getenv('POSTGRES_PASSWORD'),
@@ -27,24 +29,34 @@ migrate = Migrate(app, db)
 from app import models
 
 
+def get_user():
+    if 'user' in session: 
+        return session['user']
+        
+
 @app.route('/')
 def index():
-    return render_template('index.html', title="MLH Fellow", response=None, url=os.getenv("URL"))
+    msg = None
+    if 'message' in session:
+        msg = session['message']
+        session.pop('message', None)
+
+    return render_template('index.html', title="MLH Fellow", user=get_user(), response=msg, url=os.getenv("URL"))
 
 
 @app.route('/about')
 def about():
-    return render_template('about.html', title="About", url=os.getenv("URL"))
+    return render_template('about.html', title="About", user=get_user(), url=os.getenv("URL"))
 
 
 @app.route('/portfolio')
 def portfolio():
-    return render_template('portfolio.html', title="Portfolio", url=os.getenv("URL"))
+    return render_template('portfolio.html', title="Portfolio", user=get_user(), url=os.getenv("URL"))
 
 
 @app.route('/resume')
 def resume():
-    return render_template('resume.html', title="Resume", url=os.getenv("URL"))
+    return render_template('resume.html', title="Resume", user=get_user(), url=os.getenv("URL"))
 
 
 @app.route('/contact', methods=['GET', 'POST'])
@@ -82,7 +94,7 @@ def contact():
         except:
             response = "Sorry, there was an error."
 
-    return render_template('contact.html', title="Contact", response=response, url=os.getenv("URL"))
+    return render_template('contact.html', title="Contact", response=response, user=get_user(), url=os.getenv("URL"))
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -106,7 +118,9 @@ def register():
             db.session.commit()
 
             response = f"User {username} created successfully"
-            return render_template('temp.html', title="Register", response=response, url=os.getenv("URL"))
+            session['user'] = username
+
+            return render_template('temp.html', title="Register", response=response, user=session['user'], url=os.getenv("URL"))
             # return redirect(url_for('index')) #TODO: add session cookie to display register massage
 
     return render_template('register.html', title="Register", response=error, url=os.getenv("URL"))
@@ -129,10 +143,19 @@ def login():
 
         if error is None:
             response = "Login Successful"
-            return render_template('temp.html', title="Login", response=response, url=os.getenv("URL"))
+            session['user'] = username
+
+            return render_template('temp.html', title="Login", response=response, user=session['user'], url=os.getenv("URL"))
             # return redirect(url_for('index')) #TODO add session cookie to display login message
 
     return render_template('login.html', title="Login", response=error, url=os.getenv("URL"))
+
+
+@app.route('/logout')
+def logout(): 
+    session.pop('user', None)
+    session['message'] = 'You have been successfully logged out.'
+    return redirect(url_for('index'))
 
 
 @app.route('/health')
