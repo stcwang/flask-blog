@@ -118,7 +118,7 @@ def contact():
             server.login(email_username, email_password)
             server.sendmail(email_username, [email_recipent], msg.as_string())
             server.quit()
-        except:
+        except Exception as e:
             response = "Sorry, there was an error."
 
     return render_template(
