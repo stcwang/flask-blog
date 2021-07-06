@@ -163,7 +163,6 @@ def register():
                 user=session["user"],
                 url=os.getenv("URL"),
             )
-            # return redirect(url_for('index')) #TODO: add session cookie to display register massage
 
     return render_template(
         "register.html", title="Register", response=error, url=os.getenv("URL")
@@ -196,7 +195,6 @@ def login():
                 user=session["user"],
                 url=os.getenv("URL"),
             )
-            # return redirect(url_for('index')) #TODO add session cookie to display login message
 
     return render_template(
         "login.html", title="Login", response=error, url=os.getenv("URL")
