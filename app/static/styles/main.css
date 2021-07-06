@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&family=Yellowtail&display=swap');
-
 :root {
-  --color-background: #f5f5f5; 
+  --color-background: #f5f5f5;
   --color-foreground: #32667c;
   --color-main: black;
   --color-back-text: white;
@@ -62,6 +61,12 @@ input[type="submit"]:hover {
   background-color: var(--color-foreground);
   font-weight: 700;
   padding: 10px 0;
+  position: sticky;
+  top: 0;
+}
+
+.active {
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.10);
 }
 
 .nav-bar-centered {
@@ -95,8 +100,7 @@ input[type="submit"]:hover {
   text-decoration: underline;
 }
 
-body.about header div a.about, body.portfolio header div a.portfolio, 
-body.resume header div a.resume, body.contact header div a.contact {
+body.about header div a.about, body.portfolio header div a.portfolio, body.resume header div a.resume, body.contact header div a.contact {
   color: var(--color-main);
   text-decoration: none;
 }
@@ -143,14 +147,14 @@ body.resume header div a.resume, body.contact header div a.contact {
 }
 
 .sign-in div a {
-  color: var(--color-main); 
+  color: var(--color-main);
   text-decoration: none;
   text-align: center;
   width: 85px;
   padding: 5px 0;
   background-color: var(--color-button2);
   border-radius: 5px;
-  box-shadow: 1px 3px rgba(0,0,0,0.3);
+  box-shadow: 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .sign-in div a:hover {
@@ -173,52 +177,45 @@ body.resume header div a.resume, body.contact header div a.contact {
     width: 500px;
     margin: 0 auto;
   }
-
   .nav-menu {
     top: 0;
     position: relative;
   }
-
   @media screen and (max-width: 550px) {
+    .nav-bar {
+      position: relative;
+    }
     .nav-bar-centered {
       width: 100%;
       padding: 0;
       display: block;
     }
-    
     .sign-in {
       display: block;
       margin: 5px auto;
       width: 180px;
     }
-
     .sign-in div {
       flex-direction: row;
     }
-
     .sign-in div p {
       text-align: center;
       margin: 4px 0 8px 0;
     }
-
     .sign-in div a {
       margin: 4px;
     }
-
     .nav-menu {
       width: 100%;
       display: block;
       margin: 0 auto;
       text-align: center;
     }
-
     .nav-menu a {
       padding: 5px 0;
     }
   }
 }
-
-
 
 .profile {
   background-color: var(--color-foreground);

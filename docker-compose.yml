@@ -1,4 +1,5 @@
 version: "3.8"
+
 services:
   web:
     environment:
@@ -11,11 +12,13 @@ services:
       - .:/myportfolio 
     depends_on: 
       - db
+      
   db:
     image: postgres
     restart: always
     env_file: 
       - .env 
+
   nginx:
     image: jonasal/nginx-certbot:latest
     restart: unless-stopped 

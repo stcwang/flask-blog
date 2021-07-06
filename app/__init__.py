@@ -133,6 +133,16 @@ def contact():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     error = None
+    user = get_user()
+
+    if user:
+        return render_template(
+            "temp.html",
+            title="Register",
+            response="You're already logged in!",
+            user=user,
+            url=os.getenv("URL"),
+        )
 
     if request.method == "POST":
         username = request.form.get("username")
@@ -172,6 +182,16 @@ def register():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     error = None
+    user = get_user()
+
+    if user:
+        return render_template(
+            "temp.html",
+            title="Login",
+            response="You're already logged in!",
+            user=user,
+            url=os.getenv("URL"),
+        )
 
     if request.method == "POST":
         username = request.form.get("username")
@@ -203,8 +223,10 @@ def login():
 
 @app.route("/logout")
 def logout():
-    session.pop("user", None)
-    session["message"] = "You have been successfully logged out."
+    if "user" in session:
+        session.pop("user", None)
+        session["message"] = "You have been successfully logged out."
+
     return redirect(url_for("index"))
 
 
