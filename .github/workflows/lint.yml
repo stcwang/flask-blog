@@ -25,6 +25,9 @@ jobs:
 
       - name: Install Python dependencies
         run: pip install black flake8
+      
+      - name: Ignore line length errors
+        run: flake8 --extend-ignore=E501 .
 
       - name: Run linters
         uses: wearerequired/lint-action@v1.10.0

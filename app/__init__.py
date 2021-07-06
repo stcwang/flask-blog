@@ -35,7 +35,7 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
 
-from app import models
+from app import models  # noqa: E402
 
 
 def get_user():
