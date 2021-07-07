@@ -31,4 +31,18 @@ jobs:
 
       - name: Deploy site
         run: ssh my-vm 'cd ${{ secrets.PROJECT_ROOT }} && git fetch && git reset --hard origin/master && docker-compose up -d --build'
-          
+      
+      - name: Check container status
+        run: ssh my-vm 'cd ${{ secrets.PROJECT_ROOT }} && docker-compose ps'
+
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+
+      - name: Test site endpoints
+        run: bash prod-test.sh
+
+      - name: Send failure message to Discord
+        run: curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=🚨 Deployment Failed"
+
+      - name: Send success message to Discord
+        run: curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=🚀 Deployment Successful"
