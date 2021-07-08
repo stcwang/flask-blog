@@ -23,8 +23,5 @@ jobs:
         with:
           python-version: 3.9
 
-      - name: Install Python dependencies
-        run: pip install -r requirements.txt
-
       - name: Build Docker container
         uses: docker/build-push-action@v2
