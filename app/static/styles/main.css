@@ -5,6 +5,7 @@
   --color-main: black;
   --color-back-text: white;
   --color-highlight: #ccf1ff;
+  --color-highlight-dark: #005e80;
   --color-banner: #80ecff;
   --color-button: #3a9249;
   --color-button-dark: #2b6e36;
@@ -21,7 +22,6 @@ body {
   background-size: cover;
   width: auto;
   overflow-x: hidden;
-  font-family: "Roboto", serif;
   margin: 0px;
 }
 
@@ -343,11 +343,21 @@ body.about header div a.about, body.portfolio header div a.portfolio, body.resum
   padding: 20px;
 }
 
+.project-desc h1 a {
+  color: var(--color-main);
+  text-decoration: none;
+}
+
+.project-desc h1 a:hover {
+  color: var(--color-highlight-dark);
+  text-decoration: underline;
+}
+
 .project-desc p {
   text-align: justify;
 }
 
-.project-desc a {
+.demo-button {
   display: block;
   border-radius: 5px;
   text-align: center;
@@ -359,7 +369,7 @@ body.about header div a.about, body.portfolio header div a.portfolio, body.resum
   background-color: var(--color-button);
 }
 
-.project-desc a:hover {
+.demo-button:hover {
   background-color: var(--color-button-dark);
 }
 
@@ -375,6 +385,23 @@ body.about header div a.about, body.portfolio header div a.portfolio, body.resum
   .project-desc {
     width: 100%;
   }
+}
+
+.project-page {
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.project-page img {
+  max-width: 100vw;
+}
+
+.project-page p {
+  padding: 0 11%;
+}
+
+.project-page a {
+  margin: 0 auto;
 }
 
 /* for contact page */

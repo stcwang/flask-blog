@@ -73,6 +73,27 @@ def portfolio():
     )
 
 
+@app.route("/portfolio/<project>")
+def portfolio_project(project):
+    if project != "website1" and project != "website2":
+        return "Page not found", 404
+    else:
+        if project == "website1":
+            num = 1
+            img = url_for('static', filename='img/projects/project-1.png')
+        else:
+            num = 2
+            img = url_for('static', filename='img/projects/project-2.png')
+
+        return render_template(
+            "project.html",
+            title=f"Portfolio - Website #{num}",
+            image=img,
+            user=get_user(),
+            url=os.getenv("URL"),
+        )
+
+
 @app.route("/resume")
 def resume():
     return render_template(

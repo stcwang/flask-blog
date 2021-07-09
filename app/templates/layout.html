@@ -14,8 +14,8 @@
         rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/b0aafd5972.js" crossorigin="anonymous"></script>
-    <link lang="sass" rel="stylesheet" href="./static/styles/main.css" />
-    <link rel="icon" href="./static/img/favicon.ico" type="image/x-icon" />
+    <link lang="sass" rel="stylesheet" href="{{url_for('static', filename='styles/main.css')}}" />
+    <link rel="icon" href="{{url_for('static', filename='img/favicon.ico')}}" type="image/x-icon" />
     <title>{{ title }}</title>
     {% endblock %}
 </head>
@@ -29,7 +29,7 @@
             <div class="nav-content">
                 <div class="nav-logo">
                     <a href="{{ url_for('index') }}">
-                        <img src="./static/img/logo.svg" />
+                        <img src="{{url_for('static', filename='img/logo.svg')}}" />
                     </a>
                 </div>
             </div>
@@ -55,7 +55,7 @@
 
     {% block content %} {% endblock %}
 
-    <script src="./static/scripts/main.js"></script>
+    <script src="{{url_for('static', filename='scripts/main.js')}}"></script>
 </body>
 
 </html>

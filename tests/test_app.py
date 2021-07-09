@@ -81,7 +81,6 @@ def test_logout_success(client):
 
 # checks logout function without login
 def test_logout_fail(client):
-    data = {"username": "admin", "password": "admin"}
     with client:
         response = client.get("/logout")
         assert response.status_code == 302

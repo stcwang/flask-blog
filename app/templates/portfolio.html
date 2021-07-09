@@ -1,25 +1,35 @@
 {% extends "layout.html" %}
-{% block page %}<body class="portfolio">{% endblock %}
-{% block content %}
+{% block page %}
+
+<body class="portfolio">{% endblock %}
+    {% block content %}
     <div class="projects-section">
         <div class="project">
             <div class="project-img" style="background-image: url('./static/img/projects/project-1.png');"></div>
             <div class="project-desc">
-                <h1>Website #1</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consectetur feugiat lectus, venenatis aliquam quam tempus non. In malesuada lorem ut elit auctor, vel tristique dui mollis.</p>
-                <p>Nunc et ultricies lacus. Fusce felis sapien, venenatis at varius consequat, consectetur vel lorem. Pellentesque convallis aliquet lacus, ac dapibus erat iaculis a. Sed eget elit pretium leo finibus finibus. Aliquam erat volutpat. Vivamus auctor ex quis ligula rhoncus, non consequat dolor finibus. Duis vel pretium mauris. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <a href="#">Demo</a>
+                <h1><a href="{{url_for('portfolio_project', project='website1')}}">Website #1</a></h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consectetur feugiat lectus,
+                    venenatis aliquam quam tempus non. In malesuada lorem ut elit auctor, vel tristique dui mollis.</p>
+                <p>Nunc et ultricies lacus. Fusce felis sapien, venenatis at varius consequat, consectetur vel lorem.
+                    Pellentesque convallis aliquet lacus, ac dapibus erat iaculis a. Sed eget elit pretium leo finibus
+                    finibus. Aliquam erat volutpat. Vivamus auctor ex quis ligula rhoncus, non consequat dolor finibus.
+                    Duis vel pretium mauris. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <a href="#" class="demo-button">Demo</a>
             </div>
         </div>
-        
+
         <div class="project">
             <div class="project-img" style="background-image: url('./static/img/projects/project-2.png');"></div>
             <div class="project-desc">
-                <h1>Website #2</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consectetur feugiat lectus, venenatis aliquam quam tempus non. In malesuada lorem ut elit auctor, vel tristique dui mollis.</p>
-                <p>Nunc et ultricies lacus. Fusce felis sapien, venenatis at varius consequat, consectetur vel lorem. Pellentesque convallis aliquet lacus, ac dapibus erat iaculis a. Sed eget elit pretium leo finibus finibus. Aliquam erat volutpat. Vivamus auctor ex quis ligula rhoncus, non consequat dolor finibus. Duis vel pretium mauris. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <a href="#">Demo</a>
+                <h1><a href="{{url_for('portfolio_project', project='website2')}}">Website #2</a></h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consectetur feugiat lectus,
+                    venenatis aliquam quam tempus non. In malesuada lorem ut elit auctor, vel tristique dui mollis.</p>
+                <p>Nunc et ultricies lacus. Fusce felis sapien, venenatis at varius consequat, consectetur vel lorem.
+                    Pellentesque convallis aliquet lacus, ac dapibus erat iaculis a. Sed eget elit pretium leo finibus
+                    finibus. Aliquam erat volutpat. Vivamus auctor ex quis ligula rhoncus, non consequat dolor finibus.
+                    Duis vel pretium mauris. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <a href="#" class="demo-button">Demo</a>
             </div>
         </div>
     </div>
-{% endblock %}
+    {% endblock %}
