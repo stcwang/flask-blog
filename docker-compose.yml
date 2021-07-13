@@ -18,6 +18,8 @@ services:
     restart: always
     env_file: 
       - .env 
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
 
   nginx:
     image: jonasal/nginx-certbot:latest
@@ -34,4 +36,5 @@ services:
       - web
 
 volumes:
+  postgres_data:
   nginx_secrets:

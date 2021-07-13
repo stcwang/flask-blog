@@ -80,10 +80,10 @@ def portfolio_project(project):
     else:
         if project == "website1":
             num = 1
-            img = url_for('static', filename='img/projects/project-1.png')
+            img = url_for("static", filename="img/projects/project-1.png")
         else:
             num = 2
-            img = url_for('static', filename='img/projects/project-2.png')
+            img = url_for("static", filename="img/projects/project-2.png")
 
         return render_template(
             "project.html",
