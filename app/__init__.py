@@ -76,7 +76,15 @@ def portfolio():
 @app.route("/portfolio/<project>")
 def portfolio_project(project):
     if project != "website1" and project != "website2":
-        return "Page not found", 404
+        return (
+            render_template(
+                "error.html",
+                title="404 - Not Found",
+                user=get_user(),
+                url=os.getenv("URL"),
+            ),
+            404,
+        )
     else:
         if project == "website1":
             num = 1
@@ -169,15 +177,18 @@ def register():
         username = request.form.get("username")
         password = request.form.get("password")
 
-        if not username:
-            error = "Username is required."
-        elif not password:
-            error = "Password is required."
-        elif (
-            db.session.query(models.User).filter_by(username=username).first()
-            is not None
-        ):
-            error = f"User {username} is already registered."
+        try:
+            if not username:
+                error = "Username is required."
+            elif not password:
+                error = "Password is required."
+            elif (
+                db.session.query(models.User).filter_by(username=username).first()
+                is not None
+            ):
+                error = f"User {username} is already registered."
+        except Exception:
+            error = "Sorry, an error occurred."
 
         if error is None:
             new_user = models.User(username, generate_password_hash(password))
@@ -218,12 +229,15 @@ def login():
         username = request.form.get("username")
         password = request.form.get("password")
 
-        user = db.session.query(models.User).filter_by(username=username).first()
+        try:
+            user = db.session.query(models.User).filter_by(username=username).first()
 
-        if user is None:
-            error = "Incorrect username."
-        elif not check_password_hash(user.password, password):
-            error = "Incorrect password."
+            if user is None:
+                error = "Incorrect username."
+            elif not check_password_hash(user.password, password):
+                error = "Incorrect password."
+        except Exception:
+            error = "Sorry, an error occurred."
 
         if error is None:
             response = "Login Successful"
@@ -254,3 +268,16 @@ def logout():
 @app.route("/health")
 def health():
     return "<p>works</p>"
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return (
+        render_template(
+            "error.html",
+            title="404 - Not Found",
+            user=get_user(),
+            url=os.getenv("URL"),
+        ),
+        404,
+    )

@@ -477,3 +477,7 @@ body.index .contact-response {
   margin: 0 auto;
   max-width: 600px;
 }
+
+.error {
+  text-align: center;
+}
