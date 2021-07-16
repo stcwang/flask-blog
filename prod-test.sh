@@ -17,8 +17,6 @@ function curlCmd {
     fi 
 } 
 
-sleep 5
-
 for PT in ${ENDPTS[@]}; do 
     echo "$URL$PT" 
     curlCmd GET 

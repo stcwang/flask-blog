@@ -176,6 +176,7 @@ def register():
     if request.method == "POST":
         username = request.form.get("username")
         password = request.form.get("password")
+        password2 = request.form.get("password2")
 
         try:
             if not username:
@@ -186,7 +187,11 @@ def register():
                 db.session.query(models.User).filter_by(username=username).first()
                 is not None
             ):
-                error = f"User {username} is already registered."
+                error = f"Username {username} has been taken."
+            elif password != password2:
+                error = "Passwords don't match."
+            elif len(password) < 6:
+                error = "Password is too short."
         except Exception:
             error = "Sorry, an error occurred."
 

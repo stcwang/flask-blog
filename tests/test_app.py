@@ -28,6 +28,8 @@ def client():
         ("/", 200, b"MLH Fellow"),
         ("/about", 200, b"About Me"),
         ("/portfolio", 200, b"Website #"),
+        ("/portfolio/website1", 200, b"Website #1"),
+        ("/portfolio/website2", 200, b"Website #2"),
         ("/resume", 200, b"iframe"),
         ("/contact", 200, b"Want to get in touch? Send me a message:"),
         ("/register", 200, b"Password"),
@@ -42,24 +44,47 @@ def test_endpoint(client, endpoint, status, text):
 
 
 @pytest.mark.parametrize(
-    ["page", "user", "passwd", "result", "text"],
+    ["user", "passwd", "passwd2", "result", "text"],
     [
-        ("/register", "admin", "admin", False, b"User admin is already registered"),
-        ("/register", "admin", "newpass", False, b"User admin is already registered"),
-        ("/register", "newuser", "admin", True, b"User newuser created successfully"),
-        ("/register", "newuser", "newpass", True, b"User newuser created successfully"),
-        ("/login", "admin", "admin", True, b"Login Successful"),
-        ("/login", "admin", "badpass", False, b"Incorrect password"),
-        ("/login", "baduser", "admin", False, b"Incorrect username"),
-        ("/login", "baduser", "badpass", False, b"Incorrect username"),
+        ("admin", "admin", "admin", False, b"Username admin has been taken"),
+        ("admin", "newpass", "newpass", False, b"Username admin has been taken"),
+        ("newuser", "admin", "admin", False, b"Password is too short"),
+        ("newuser", "admin", "newpass", False, b"t match"),
+        ("newuser", "newpass", "newpass", True, b"User newuser created successfully"),
     ],
 )
-def test_register_login(client, page, user, passwd, result, text):
+def test_register(client, user, passwd, passwd2, result, text):
     existing_user = User("admin", generate_password_hash("admin"))
     db.session.add(existing_user)
 
     with client:
-        response = client.post(page, data={"username": user, "password": passwd})
+        response = client.post(
+            "/register",
+            data={"username": user, "password": passwd, "password2": passwd2},
+        )
+        assert response.status_code == 200
+        assert text in response.data
+        check1 = bytes(f"Hi, {user}!", encoding="utf-8") in response.data
+        assert check1 == result
+        check2 = "user" in session
+        assert check2 == result
+
+
+@pytest.mark.parametrize(
+    ["user", "passwd", "result", "text"],
+    [
+        ("admin", "admin", True, b"Login Successful"),
+        ("admin", "badpass", False, b"Incorrect password"),
+        ("baduser", "admin", False, b"Incorrect username"),
+        ("baduser", "badpass", False, b"Incorrect username"),
+    ],
+)
+def test_login(client, user, passwd, result, text):
+    existing_user = User("admin", generate_password_hash("admin"))
+    db.session.add(existing_user)
+
+    with client:
+        response = client.post("/login", data={"username": user, "password": passwd})
         assert response.status_code == 200
         assert text in response.data
         check1 = bytes(f"Hi, {user}!", encoding="utf-8") in response.data
@@ -70,7 +95,7 @@ def test_register_login(client, page, user, passwd, result, text):
 
 # checks logout function from logged in user
 def test_logout_success(client):
-    data = {"username": "admin", "password": "admin"}
+    data = {"username": "admin", "password": "password", "password2": "password"}
     with client:
         client.post("/register", data=data)
         response = client.get("/logout")
@@ -90,9 +115,12 @@ def test_logout_fail(client):
 
 # checks that passwords are not saved plain text
 def test_password_hash(client):
-    client.post("/register", data={"username": "admin", "password": "admin"})
+    client.post(
+        "/register",
+        data={"username": "admin", "password": "password", "password2": "password"},
+    )
     passwd = db.session.query(User).filter_by(username="admin").first()
-    assert passwd.password != "admin"
+    assert passwd.password != "password"
 
 
 # checks that creating a user works correctly

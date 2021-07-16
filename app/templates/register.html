@@ -1,5 +1,7 @@
 {% extends "layout.html" %}
-{% block page %}<body class="register">{% endblock %}
+{% block page %}
+
+<body class="register">{% endblock %}
     {% block content %}
     <h1>{{ title }}</h1>
     <div class="form">
@@ -11,7 +13,10 @@
             <input type="text" id="username" name="username" required><br>
             <label>Password</label><br>
             <input type="password" id="password" name="password" required><br>
-            <input type="submit" value="Submit">
+            <p>Password must be at least 6 characters in length.</p>
+            <label>Reenter password</label><br>
+            <input type="password" id="password2" name="password2" required><br>
+            <input type="submit" value="Sign up">
         </form>
     </div>
 

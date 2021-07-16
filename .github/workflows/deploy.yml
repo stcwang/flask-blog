@@ -39,7 +39,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Test site endpoints
-        run: bash prod-test.sh
+        run: sleep 5 && bash prod-test.sh
 
       - name: Send failure message to Discord
         if: ${{ failure() }}

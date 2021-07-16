@@ -472,6 +472,11 @@ body.login, body.register {
   margin: 0 auto;
 }
 
+#login-form p {
+  font-size: 12px;
+  margin-top: 0;
+}
+
 body.index .contact-response {
   text-align: center;
   margin: 0 auto;
